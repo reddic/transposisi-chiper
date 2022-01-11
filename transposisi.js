@@ -1,12 +1,12 @@
 
 	function Encrypt() {
-	    plaintext = document.getElementById("p").value.toLowerCase().replace(/[^a-z]/g, "");  
+	    plaintext = document.getElementById("p").value.toUpperCase().replace(/[^A-Z]/g, "");  
 	    if(plaintext.length < 1){ alert("tolong masukan  plaintext"); return; }
 
 	    var key = document.getElementById("key").value.toLowerCase().replace(/[^a-z]/g, "");  
-	    var pc = document.getElementById("pc").value.toLowerCase().replace(/[^a-z]/g, "");
+	    var pc = document.getElementById("pc").value.toUpperCase().replace(/[^A-Z]/g, "");
 	    if(key < 2){ alert("masukan kata kunci minimal 2 karakter atau lebih"); return; }
-	    if(pc=="") pc = "p";    
+	    if(pc=="") pc = "x";    
 	    while(plaintext.length % key.length != 0) plaintext += pc.charAt(0);    
 	    var colLength = plaintext.length / key.length;
 	    var chars = "abcdefghijklmnopqrstuvwxyz"; 
@@ -24,7 +24,7 @@
 	}
 
 	function Decrypt(f) {
-	    ciphertext = document.getElementById("c").value.toLowerCase().replace(/[^a-z]/g, "");  
+	    ciphertext = document.getElementById("c").value.toUpperCase().replace(/[^A-Z]/g, "");  
 	    if(ciphertext.length < 1){ alert("tolong masukan ciphertext (letters only)"); return; }    
 	    keyword = document.getElementById("key").value.toLowerCase().replace(/[^a-z]/g, ""); 
 	    klen = keyword.length;
